@@ -31,13 +31,22 @@ body {
     /*opacity: 0;*/
 }
 
-#toggle {
+.info {
 	position: absolute;
-	right: 0;
 	bottom: 0;
 	background-color: black;
 	color: white;
 	border: none;
+	font-size: 9pt;
+	margin: 5px;
+}
+
+#instructions {
+	left: 0;
+}
+
+#toggle {
+	right: 0;
 }
 
 .label {
@@ -91,7 +100,7 @@ body {
 }
 
 #countdown {
-	font-size: 48pt;
+	font-size: 72pt;
 	font-weight: bold;
 	text-align: center;
 	background-color: black;
