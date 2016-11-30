@@ -1,0 +1,105 @@
+body {
+	font-family: Helvetica, Arial, Serif;
+	font-size: 18pt;
+	color: white;
+}
+
+#bkg { 
+	background: url(../assets/aud.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+#main {
+	width: 90%;
+	height: 90%;
+
+	margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    /*opacity: 0;*/
+}
+
+#toggle {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background-color: black;
+	color: white;
+	border: none;
+}
+
+.label {
+	background-color: black;
+	text-align: center;
+}
+
+.alert {
+	text-align: center;
+	font-size: 30pt;
+	border: 2px solid white;
+	color: white;
+
+    padding: 10px;
+    margin: 2px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.uh {
+	background-color: purple;
+}
+
+.like {
+	background-color: blue;
+}
+
+.louder {
+	background-color: red;
+}
+
+.softer {
+	background-color: lightblue;
+	color: black;
+}
+
+.faster {
+	background-color: orange;
+}
+
+.slower {
+	background-color: pink;
+	color: black;
+}
+
+.eyes {
+	background-color: rgb(75, 75, 75);
+	margin: 2px;
+	margin-right: 25px;
+	display: inline-block;
+}
+
+#countdown {
+	font-size: 48pt;
+	font-weight: bold;
+	text-align: center;
+	background-color: black;
+	padding: 5px;
+
+	margin: 0;
+    position: absolute;
+    left: 50%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+}
