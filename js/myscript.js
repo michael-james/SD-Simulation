@@ -9,7 +9,7 @@ var m = $("#main");
 
 
 var fin = 300,
-	delayDur = 2200;
+	delayDur = 5000;
 	fout = 300;
 
 // keyboard shortcuts
@@ -27,16 +27,16 @@ Mousetrap.bind('9', function() {clearInterval(timeinterval); initializeClock('co
 Mousetrap.bind('0', function() {clearInterval(timeinterval); initializeClock('countdown', 10);});
 
 // uh
-var uhs = $("#uhs"),
+var alerts = $("#alerts"),
 	uhCount = 0;
 
 Mousetrap.bind('u', function() {
 	var alert = $("<div>", {"class": "alert uh"});
 	alert.text("uh");
-	alert.hide().appendTo(uhs).fadeIn(fin).delay(delayDur).fadeOut(fout);
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	uhCount += 1;
-	$("#uh-count").text(uhCount + " uhs");
+	$("#uh-count").text(uhCount + " uhs,");
 });
 
 // like
@@ -46,10 +46,10 @@ var likes = $("#likes"),
 Mousetrap.bind('l', function() {
 	var alert = $("<div>", {"class": "alert like"});
 	alert.text("like");
-	alert.hide().appendTo(likes).fadeIn(fin).delay(delayDur).fadeOut(fout);
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	likeCount += 1;
-	$("#like-count").text(likeCount + " likes");
+	$("#like-count").text(likeCount + " likes,");
 });
 
 // warnings
@@ -60,40 +60,40 @@ var warnings = $("#warnings"),
 Mousetrap.bind('up', function() {
 	var alert = $("<div>", {"class": "alert louder"});
 	alert.text("louder!");
-	alert.hide().appendTo(warnings).fadeIn(fin).delay(delayDur).fadeOut(fout);
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	warnCount += 1;
-	$("#warnings-count").text(warnCount + " warnings");
+	$("#warnings-count").text(warnCount + " warnings,");
 });
 
 // softer
 Mousetrap.bind('down', function() {
 	var alert = $("<div>", {"class": "alert softer"});
 	alert.text("softer");
-	alert.hide().appendTo(warnings).fadeIn(fin).delay(delayDur).fadeOut(fout);
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	warnCount += 1;
-	$("#warnings-count").text(warnCount + " warnings");
+	$("#warnings-count").text(warnCount + " warnings,");
 });
 
 // faster
 Mousetrap.bind('right', function() {
 	var alert = $("<div>", {"class": "alert faster"});
 	alert.text("faster");
-	alert.hide().appendTo(warnings).fadeIn(fin).delay(delayDur).fadeOut(fout);
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	warnCount += 1;
-	$("#warnings-count").text(warnCount + " warnings");
+	$("#warnings-count").text(warnCount + " warnings,");
 });
 
 // slower
 Mousetrap.bind('left', function() {
 	var alert = $("<div>", {"class": "alert slower"});
 	alert.text("slower!");
-	alert.hide().appendTo(warnings).fadeIn(fin).delay(delayDur).fadeOut(fout);
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	warnCount += 1;
-	$("#warnings-count").text(warnCount + " warnings");
+	$("#warnings-count").text(warnCount + " warnings,");
 });
 
 // slower
@@ -102,23 +102,25 @@ var eyecontact = $("#eyecontact"),
 
 Mousetrap.bind('e', function() {
 	var alert = $("<img>", {"class": "alert eyes", "src": "assets/eyes.png", "width": "145px"});
-	alert.hide().appendTo(eyecontact).fadeIn(fin).delay(delayDur).fadeOut(fout);
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	eyeCount += 1;
 	$("#eye-count").text(eyeCount + " eye contact reminders");
 });
 
+// update counts
+(function( $ ){
+   $.fn.updateCounts = function() {
+      $("#uh-count").text(uhCount + " uhs,");
+      $("#like-count").text(likeCount + " likes,");
+      $("#warnings-count").text(warnCount + " warnings,");
+      $("#eye-count").text(eyeCount + " eye contact reminders");
+   }; 
+})( jQuery );
+
 // clear
 Mousetrap.bind('backspace', function() {
-	uhCount = 0;
-	$("#uh-count").text(uhCount + " uhs");
-	likeCount = 0;
-	$("#like-count").text(likeCount + " likes");
-	warnCount = 0;
-	$("#warnings-count").text(warnCount + " warnings");
-	console.log("clear");
-	eyeCount = 0;
-	$("#eye-count").text(eyeCount + " eye contact reminders");
+	uhCount, likeCount, warnCount, eyeCount = 0;	
 
 	clearInterval(timeinterval);
 	var clock = document.getElementById('countdown');

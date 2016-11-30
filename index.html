@@ -24,33 +24,24 @@
   <body>
     <div id="bkg">
       <div id="main">
-        <div id="uhs">
-          <div id="uh-count" class="label">
-            0 uhs
-          </div>
-        </div>
 
-        <div id="likes">
-          <div id="like-count" class="label">
-            0 likes
-          </div>
-        </div>
+        
 
-        <div id="warnings">
-          <div id="warnings-count" class="label">
-            0 warnings
-          </div>
-        </div>
-
-        <div id="eyecontact">
-          <div id="eye-count" class="label">
-            0 eye contact reminders
-          </div>
-        </div>
+        <div id="alerts"></div>
+        
       </div>
 
-      <div id="countdown">
-        00:00
+      <div id="data">
+        <div id="countdown">
+          00:00
+        </div>
+
+        <div id="counts" class="label">
+            <span id="uh-count" class="label">0 uhs,</span>
+            <span id="like-count" class="label">0 likes,</span>
+            <span id="warnings-count" class="label">0 warnings,</span>
+            <span id="eye-count" class="label">0 eye contact reminders</span>
+          </div>
       </div>
 
       <div id="instructions" class="info">
@@ -62,10 +53,10 @@
         e = eye contact<br>
         up = louder<br>
         down = softer<br>
-        right = faster<br>
+        right = faster<br>s
         left = slower
       </div>
-      
+
       <button id="toggle" class="info">Fullscreen</button>
     </div>
 
