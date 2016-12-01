@@ -15,16 +15,16 @@ var fin = 300,
 // keyboard shortcuts
 
 // start
-Mousetrap.bind('1', function() {clearInterval(timeinterval); initializeClock('countdown', 1);});
-Mousetrap.bind('2', function() {clearInterval(timeinterval); initializeClock('countdown', 2);});
-Mousetrap.bind('3', function() {clearInterval(timeinterval); initializeClock('countdown', 3);});
-Mousetrap.bind('4', function() {clearInterval(timeinterval); initializeClock('countdown', 4);});
-Mousetrap.bind('5', function() {clearInterval(timeinterval); initializeClock('countdown', 5);});
-Mousetrap.bind('6', function() {clearInterval(timeinterval); initializeClock('countdown', 6);});
-Mousetrap.bind('7', function() {clearInterval(timeinterval); initializeClock('countdown', 7);});
-Mousetrap.bind('8', function() {clearInterval(timeinterval); initializeClock('countdown', 8);});
-Mousetrap.bind('9', function() {clearInterval(timeinterval); initializeClock('countdown', 9);});
-Mousetrap.bind('0', function() {clearInterval(timeinterval); initializeClock('countdown', 10);});
+Mousetrap.bind('1', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 1);});
+Mousetrap.bind('2', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 2);});
+Mousetrap.bind('3', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 3);});
+Mousetrap.bind('4', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 4);});
+Mousetrap.bind('5', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 5);});
+Mousetrap.bind('6', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 6);});
+Mousetrap.bind('7', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 7);});
+Mousetrap.bind('8', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 8);});
+Mousetrap.bind('9', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 9);});
+Mousetrap.bind('0', function() {clearInterval(timeinterval); $("#bkg").fadeIn(); initializeClock('countdown', 10);});
 
 // uh
 var alerts = $("#alerts"),
@@ -32,11 +32,11 @@ var alerts = $("#alerts"),
 
 Mousetrap.bind('u', function() {
 	var alert = $("<div>", {"class": "alert uh"});
-	alert.text("uh");
+	alert.text("uh...");
 	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	uhCount += 1;
-	$("#uh-count").text(uhCount + " uhs,");
+	$("#uh-count").text(uhCount + " uh's,");
 });
 
 // like
@@ -49,7 +49,55 @@ Mousetrap.bind('l', function() {
 	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
 
 	likeCount += 1;
-	$("#like-count").text(likeCount + " likes,");
+	$("#like-count").text(likeCount + " like's,");
+});
+
+// and
+var andCount = 0;
+
+Mousetrap.bind('a', function() {
+	var alert = $("<div>", {"class": "alert and"});
+	alert.text("and...");
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
+
+	andCount += 1;
+	$("#and-count").text(andCount + " and's,");
+});
+
+// but
+var butCount = 0;
+
+Mousetrap.bind('b', function() {
+	var alert = $("<div>", {"class": "alert but"});
+	alert.text("but...");
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
+
+	butCount += 1;
+	$("#but-count").text(butCount + " but's,");
+});
+
+// well
+var wellCount = 0;
+
+Mousetrap.bind('w', function() {
+	var alert = $("<div>", {"class": "alert well"});
+	alert.text("well...");
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
+
+	wellCount += 1;
+	$("#well-count").text(wellCount + " well's,");
+});
+
+// so
+var soCount = 0;
+
+Mousetrap.bind('s', function() {
+	var alert = $("<div>", {"class": "alert so"});
+	alert.text("so...");
+	alert.hide().appendTo(alerts).fadeIn(fin).delay(delayDur).fadeOut(fout);
+
+	soCount += 1;
+	$("#so-count").text(soCount + " so's,");
 });
 
 // warnings
@@ -108,23 +156,30 @@ Mousetrap.bind('e', function() {
 	$("#eye-count").text(eyeCount + " eye contact reminders");
 });
 
-// update counts
-(function( $ ){
-   $.fn.updateCounts = function() {
-      $("#uh-count").text(uhCount + " uhs,");
-      $("#like-count").text(likeCount + " likes,");
-      $("#warnings-count").text(warnCount + " warnings,");
-      $("#eye-count").text(eyeCount + " eye contact reminders");
-   }; 
-})( jQuery );
-
 // clear
 Mousetrap.bind('backspace', function() {
-	uhCount, likeCount, warnCount, eyeCount = 0;	
+	uhCount = 0;
+	likeCount = 0;
+	warnCount = 0;
+	eyeCount = 0;
+	andCount = 0;
+	butCount = 0;
+	wellCount = 0;
+	soCount = 0;
+	$("#uh-count").text(uhCount + " uhs,");
+    $("#like-count").text(likeCount + " likes,");
+	$("#and-count").text(andCount + " and's,");
+    $("#but-count").text(butCount + " but's,");
+	$("#well-count").text(wellCount + " well's,");
+    $("#so-count").text(soCount + " so's,");
+    $("#warnings-count").text(warnCount + " warnings,");
+    $("#eye-count").text(eyeCount + " eye contact reminders");
 
 	clearInterval(timeinterval);
 	var clock = document.getElementById('countdown');
 	clock.innerHTML = '00:00';
+
+	$("#bkg").fadeOut();
 });
 
 
